@@ -11,6 +11,7 @@ Anki 向け学習デッキ（**227問**）を CSV 生成し、[AnkiConnect](http
 | Git学習 | 50 | Basic + ミニマル画像 | `git_deck.csv` |
 | 高校数学・基礎解析 | 100 | Cloze + MathJax + 解説 | `math_deck.csv` |
 | Emacsキー操作 | 77 | Basic | `emacs_deck.csv` |
+| ０２メタ認知アップ | 48 | Cloze | `metacog_deck.csv` |
 
 ## 必要環境
 
@@ -30,6 +31,7 @@ pip install -r requirements.txt
 python generate_git_deck.py
 python generate_math_deck.py
 python generate_emacs_deck.py
+python generate_metacog_deck.py
 ```
 
 ## Anki へのインポート
@@ -44,6 +46,7 @@ python import_to_anki.py
 python import_to_anki.py --git-only
 python import_to_anki.py --math-only
 python import_to_anki.py --emacs-only
+python import_to_anki.py --metacog-only
 
 # 事前チェックのみ（Anki 不要）
 python import_to_anki.py --preflight
@@ -56,7 +59,7 @@ python import_to_anki.py --fix-mathjax
 
 ```
 my-anki-deck-make/
-├── git_deck.csv / math_deck.csv / emacs_deck.csv
+├── git_deck.csv / math_deck.csv / emacs_deck.csv / metacog_deck.csv
 ├── generate_*.py          # 各デッキ CSV 生成
 ├── math_explanations.py   # 数学デッキ解説（Back Extra）
 ├── import_to_anki.py      # AnkiConnect インポート
