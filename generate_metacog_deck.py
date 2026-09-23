@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 metacog_deck.csv generator
-「０２メタ認知アップ」48問の Cloze カードを生成する。
+「02メタ認知アップ」48問の Cloze カードを生成する。
 
 一次資料: Issue #1 に貼られた概要資料のみ。
 穴は 1 カードにつき 1 つ。枚数上限は 50。
@@ -13,7 +13,7 @@ import sys
 
 OUTPUT = "metacog_deck.csv"
 EXPECTED_TOTAL = 48
-DECK_TITLE = "０２メタ認知アップ"
+DECK_TITLE = "02メタ認知アップ"
 
 # (Text, Tag)。穴は {{c1::...}} がちょうど 1 つ。
 CARDS = [

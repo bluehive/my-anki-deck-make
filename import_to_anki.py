@@ -34,7 +34,7 @@ EMACS_DECK_NAME = "Emacsキー操作"
 EMACS_CSV = "emacs_deck.csv"
 EMACS_EXPECTED_COUNT = 106
 
-METACOG_DECK_NAME = "０２メタ認知アップ"
+METACOG_DECK_NAME = "02メタ認知アップ"
 METACOG_CSV = "metacog_deck.csv"
 METACOG_EXPECTED_COUNT = 48
 
