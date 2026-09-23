@@ -1,4 +1,4 @@
-# anki-mydeck-make
+# my-anki-deck-make
 
 Anki 向け学習デッキ（**227問**）を CSV 生成し、[AnkiConnect](https://foosoft.net/projects/anki-connect/) 経由で自動インポートする Python プロジェクトです。
 
@@ -55,7 +55,7 @@ python import_to_anki.py --fix-mathjax
 ## プロジェクト構成
 
 ```
-anki-mydeck-make/
+my-anki-deck-make/
 ├── git_deck.csv / math_deck.csv / emacs_deck.csv
 ├── generate_*.py          # 各デッキ CSV 生成
 ├── math_explanations.py   # 数学デッキ解説（Back Extra）

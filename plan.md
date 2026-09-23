@@ -694,7 +694,7 @@ EMACS_CSV = "emacs_deck.csv"
 #### 4.5.1 ファイル構成（追加分）
 
 ```
-anki-mydeck-make/
+my-anki-deck-make/
 ├── emacs_deck.csv              # 77問（表面, 裏面, カテゴリ）
 ├── generate_emacs_deck.py      # CSV生成スクリプト
 └── import_to_anki.py           # emacs デッキ対応を追加
