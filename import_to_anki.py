@@ -34,6 +34,10 @@ EMACS_DECK_NAME = "Emacsキー操作"
 EMACS_CSV = "emacs_deck.csv"
 EMACS_EXPECTED_COUNT = 106
 
+METACOG_DECK_NAME = "０２メタ認知アップ"
+METACOG_CSV = "metacog_deck.csv"
+METACOG_EXPECTED_COUNT = 48
+
 TOEIC_MEANING_DECK_NAME = "TOEIC英単語・意味"
 TOEIC_CLOZE_DECK_NAME = "TOEIC英単語・文脈"
 TOEIC_MEANING_CSV = "toeic_deck_meaning.csv"
@@ -230,6 +234,24 @@ def add_toeic_cloze_note(text: str, back_extra: str, word: str = "") -> bool:
     return invoke("addNote", {"note": note}) is not None
 
 
+def add_metacog_note(text: str, tag: str = "") -> bool:
+    """メタ認知 Cloze カードを追加。再実行は重複追加になる。"""
+    tags = ["metacog", PROJECT_TAG]
+    if tag:
+        tags.append(tag)
+
+    note = {
+        "deckName": METACOG_DECK_NAME,
+        "modelName": "Cloze",
+        "fields": {
+            "Text": text,
+            "Back Extra": "",
+        },
+        "tags": tags,
+    }
+    return invoke("addNote", {"note": note}) is not None
+
+
 def add_emacs_note(front: str, back: str, category: str = "") -> bool:
     """Emacsキー操作カードを追加"""
     tags = ["emacs", PROJECT_TAG]
@@ -326,6 +348,42 @@ def import_math_deck() -> tuple[int, int]:
             print("  ✗ カード追加失敗")
 
     print(f"\n--- 数学デッキ完了: {success}/{total} カード ---")
+    return success, total
+
+
+def import_metacog_deck() -> tuple[int, int]:
+    """metacog_deck.csv をインポート。戻り値: (成功数, 総数)"""
+    if not os.path.exists(METACOG_CSV):
+        print(f"エラー: {METACOG_CSV} が見つかりません")
+        return 0, 0
+
+    if not ensure_model_exists("Cloze"):
+        return 0, 0
+
+    ensure_deck_exists(METACOG_DECK_NAME)
+
+    print("\n=== メタ認知デッキのインポート開始 ===")
+    print(f"CSV: {METACOG_CSV}")
+    print(f"デッキ: {METACOG_DECK_NAME}")
+
+    with open(METACOG_CSV, "r", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+
+    total = len(rows)
+    success = 0
+
+    for i, row in enumerate(rows, 1):
+        text = row["Text"]
+        tag = row.get("Tag", "").strip()
+        preview = text[:40]
+        print(f"\n[{i}/{total}] {preview}...")
+        if add_metacog_note(text, tag):
+            success += 1
+            print("  ✓ カード追加成功")
+        else:
+            print("  ✗ カード追加失敗")
+
+    print(f"\n--- メタ認知デッキ完了: {success}/{total} カード ---")
     return success, total
 
 
@@ -665,6 +723,7 @@ def print_usage_guide():
     print(f"   - {GIT_DECK_NAME}")
     print(f"   - {MATH_DECK_NAME}")
     print(f"   - {EMACS_DECK_NAME}")
+    print(f"   - {METACOG_DECK_NAME}")
     print(f"   - {TOEIC_MEANING_DECK_NAME}")
     print(f"   - {TOEIC_CLOZE_DECK_NAME}")
     print("2. 数学デッキの数式は \\(...\\)（MathJax）記法です。")
@@ -680,6 +739,7 @@ def preflight_check(
     check_math: bool = True,
     check_emacs: bool = True,
     check_toeic: bool = False,
+    check_metacog: bool = False,
 ) -> bool:
     """CSV・画像の存在確認（Anki不要）"""
     print("\n=== 事前チェック ===")
@@ -692,6 +752,8 @@ def preflight_check(
         targets.append((MATH_CSV, "数学 CSV"))
     if check_emacs:
         targets.append((EMACS_CSV, "Emacs CSV"))
+    if check_metacog:
+        targets.append((METACOG_CSV, "メタ認知 CSV"))
     if check_toeic:
         targets.append((TOEIC_MEANING_CSV, "TOEIC意味 CSV"))
         targets.append((TOEIC_CLOZE_CSV, "TOEIC Cloze CSV"))
@@ -753,6 +815,21 @@ def preflight_check(
         else:
             print("  ✓ カテゴリ: 全カードOK")
 
+    if check_metacog and os.path.exists(METACOG_CSV):
+        with open(METACOG_CSV, "r", encoding="utf-8") as f:
+            metacog_rows = list(csv.DictReader(f))
+        print(f"  メタ認知カード数: {len(metacog_rows)}")
+        if len(metacog_rows) != METACOG_EXPECTED_COUNT:
+            print(
+                f"  ✗ 件数不一致（期待: {METACOG_EXPECTED_COUNT}, 実際: {len(metacog_rows)}）"
+            )
+            ok = False
+        elif len(metacog_rows) > 50:
+            print(f"  ✗ 新規上限50を超えています: {len(metacog_rows)}")
+            ok = False
+        else:
+            print(f"  ✓ 件数: {METACOG_EXPECTED_COUNT}問（上限50以内）")
+
     if check_toeic:
         meaning_rows = []
         cloze_rows = []
@@ -793,6 +870,7 @@ def verify_imported(
     check_math: bool = True,
     check_emacs: bool = True,
     check_toeic: bool = False,
+    check_metacog: bool = False,
 ) -> bool:
     """インポート後の件数確認"""
     print("\n=== インポート結果の検証 ===")
@@ -833,6 +911,19 @@ def verify_imported(
             )
             all_ok = False
 
+    if check_metacog:
+        metacog_count = invoke("findNotes", {"query": f'deck:"{METACOG_DECK_NAME}"'})
+        if metacog_count is None:
+            print("  検証APIの呼び出しに失敗しました（メタ認知）")
+            return False
+        print(f"  メタ認知デッキ ({METACOG_DECK_NAME}): {len(metacog_count)} ノート")
+        if len(metacog_count) < METACOG_EXPECTED_COUNT:
+            print(
+                "  ⚠ メタ認知デッキが不足しています"
+                f"（期待: {METACOG_EXPECTED_COUNT}, 実際: {len(metacog_count)}）"
+            )
+            all_ok = False
+
     if check_toeic:
         meaning_count = invoke("findNotes", {"query": f'deck:"{TOEIC_MEANING_DECK_NAME}"'})
         cloze_count = invoke("findNotes", {"query": f'deck:"{TOEIC_CLOZE_DECK_NAME}"'})
@@ -854,13 +945,14 @@ def verify_imported(
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="AnkiConnect経由で Git / 数学 / Emacs / TOEIC デッキをインポート"
+        description="AnkiConnect経由で Git / 数学 / Emacs / TOEIC / メタ認知 デッキをインポート"
     )
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--git-only", action="store_true", help="Gitデッキのみ")
     group.add_argument("--math-only", action="store_true", help="数学デッキのみ")
     group.add_argument("--emacs-only", action="store_true", help="Emacsデッキのみ")
     group.add_argument("--toeic-only", action="store_true", help="TOEICデッキのみ")
+    group.add_argument("--metacog-only", action="store_true", help="メタ認知デッキのみ")
     parser.add_argument(
         "--preflight", action="store_true", help="CSV/画像の事前チェックのみ（Anki不要）"
     )
@@ -922,6 +1014,14 @@ def main():
                 check_emacs=True,
                 check_toeic=False,
             )
+        elif args.metacog_only:
+            ok = preflight_check(
+                check_git=False,
+                check_math=False,
+                check_emacs=False,
+                check_toeic=False,
+                check_metacog=True,
+            )
         else:
             ok = preflight_check(check_toeic=True)
         sys.exit(0 if ok else 1)
@@ -938,18 +1038,35 @@ def main():
         sync_toeic_cloze_in_anki()
         sys.exit(0)
 
+    import_git = import_math = import_emacs = import_toeic = import_metacog = False
     if args.git_only:
-        import_git, import_math, import_emacs, import_toeic = True, False, False, False
+        import_git, import_math, import_emacs, import_toeic, import_metacog = (
+            True, False, False, False, False,
+        )
     elif args.math_only:
-        import_git, import_math, import_emacs, import_toeic = False, True, False, False
+        import_git, import_math, import_emacs, import_toeic, import_metacog = (
+            False, True, False, False, False,
+        )
     elif args.emacs_only:
-        import_git, import_math, import_emacs, import_toeic = False, False, True, False
+        import_git, import_math, import_emacs, import_toeic, import_metacog = (
+            False, False, True, False, False,
+        )
     elif args.toeic_only:
-        import_git, import_math, import_emacs, import_toeic = False, False, False, True
+        import_git, import_math, import_emacs, import_toeic, import_metacog = (
+            False, False, False, True, False,
+        )
+    elif args.metacog_only:
+        import_git, import_math, import_emacs, import_toeic, import_metacog = (
+            False, False, False, False, True,
+        )
     else:
+        # 既存デッキの再実行は重複追加になる。新デッキは --metacog-only のみ。
         import_git = import_math = import_emacs = import_toeic = True
+        import_metacog = False
 
-    if not preflight_check(import_git, import_math, import_emacs, import_toeic):
+    if not preflight_check(
+        import_git, import_math, import_emacs, import_toeic, import_metacog
+    ):
         sys.exit(1)
 
     if not check_connection():
@@ -963,6 +1080,7 @@ def main():
     math_result = (0, 0)
     emacs_result = (0, 0)
     toeic_result = (0, 0, 0, 0)
+    metacog_result = (0, 0)
 
     if import_git:
         git_result = import_git_deck()
@@ -970,6 +1088,8 @@ def main():
         math_result = import_math_deck()
     if import_emacs:
         emacs_result = import_emacs_deck()
+    if import_metacog:
+        metacog_result = import_metacog_deck()
     if import_toeic:
         toeic_result = import_toeic_decks(
             skip_media=args.skip_media,
@@ -985,6 +1105,8 @@ def main():
         print(f"数学デッキ ({MATH_DECK_NAME}): {math_result[0]}/{math_result[1]}")
     if import_emacs:
         print(f"Emacsデッキ ({EMACS_DECK_NAME}): {emacs_result[0]}/{emacs_result[1]}")
+    if import_metacog:
+        print(f"メタ認知デッキ ({METACOG_DECK_NAME}): {metacog_result[0]}/{metacog_result[1]}")
     if import_toeic:
         print(
             f"TOEICパターンA ({TOEIC_MEANING_DECK_NAME}): "
@@ -995,14 +1117,22 @@ def main():
             f"{toeic_result[2]}/{toeic_result[3]}"
         )
 
-    total_ok = git_result[0] + math_result[0] + emacs_result[0] + toeic_result[0] + toeic_result[2]
-    total_all = git_result[1] + math_result[1] + emacs_result[1] + toeic_result[1] + toeic_result[3]
+    total_ok = (
+        git_result[0] + math_result[0] + emacs_result[0]
+        + toeic_result[0] + toeic_result[2] + metacog_result[0]
+    )
+    total_all = (
+        git_result[1] + math_result[1] + emacs_result[1]
+        + toeic_result[1] + toeic_result[3] + metacog_result[1]
+    )
     print(f"合計: {total_ok}/{total_all} カード")
 
     if total_ok < total_all:
         sys.exit(1)
 
-    verify_imported(import_git, import_math, import_emacs, import_toeic)
+    verify_imported(
+        import_git, import_math, import_emacs, import_toeic, import_metacog
+    )
     print_usage_guide()
 
 
