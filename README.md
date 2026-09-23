@@ -11,7 +11,7 @@ Anki 向け学習デッキ（**227問**）を CSV 生成し、[AnkiConnect](http
 | Git学習 | 50 | Basic + ミニマル画像 | `git_deck.csv` |
 | 高校数学・基礎解析 | 100 | Cloze + MathJax + 解説 | `math_deck.csv` |
 | Emacsキー操作 | 77 | Basic | `emacs_deck.csv` |
-| ０２メタ認知アップ | 48 | Cloze | `metacog_deck.csv` |
+| 02メタ認知アップ | 48 | Cloze | `metacog_deck.csv` |
 
 ## 必要環境
 
