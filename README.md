@@ -1,6 +1,6 @@
 # my-anki-deck-make
 
-Anki 向け学習デッキ（**227問**）を CSV 生成し、[AnkiConnect](https://foosoft.net/projects/anki-connect/) 経由で自動インポートする Python プロジェクトです。
+Anki 向け学習デッキを CSV 生成し、[AnkiConnect](https://foosoft.net/projects/anki-connect/) 経由で自動インポートする Python プロジェクトです。
 
 > **コード・ビルド**: [Grok](https://grok.com)（xAI）が生成・整備しました。
 
@@ -10,8 +10,10 @@ Anki 向け学習デッキ（**227問**）を CSV 生成し、[AnkiConnect](http
 |----------|------|------|-----|
 | Git学習 | 50 | Basic + ミニマル画像 | `git_deck.csv` |
 | 高校数学・基礎解析 | 100 | Cloze + MathJax + 解説 | `math_deck.csv` |
-| Emacsキー操作 | 77 | Basic | `emacs_deck.csv` |
+| Emacsキー操作 | 106 | Basic | `emacs_deck.csv` |
 | 02メタ認知アップ | 48 | Cloze | `metacog_deck.csv` |
+| TOEIC英単語・意味 | 1062 | Basic | `toeic_deck_meaning.csv` |
+| TOEIC英単語・文脈 | 1043 | Cloze | `toeic_deck_cloze.csv` |
 
 ## 必要環境
 
@@ -32,6 +34,7 @@ python generate_git_deck.py
 python generate_math_deck.py
 python generate_emacs_deck.py
 python generate_metacog_deck.py
+python generate_toeic_deck.py
 ```
 
 ## Anki へのインポート
@@ -39,17 +42,20 @@ python generate_metacog_deck.py
 Anki を起動し、AnkiConnect を有効にした状態で実行します。
 
 ```bash
-# 全デッキ
-python import_to_anki.py
-
-# 個別
+# 個別（再実行すると、そのデッキのカードが重複追加される）
 python import_to_anki.py --git-only
 python import_to_anki.py --math-only
 python import_to_anki.py --emacs-only
 python import_to_anki.py --metacog-only
+python import_to_anki.py --toeic-only
+
+# 引数なしは Git / 数学 / Emacs / TOEIC を追加する。02メタ認知アップは含まない。
+# 既存カードがあるデッキでは使わない。
+python import_to_anki.py
 
 # 事前チェックのみ（Anki 不要）
 python import_to_anki.py --preflight
+python import_to_anki.py --preflight --metacog-only
 
 # 数学デッキの Text / 解説を CSV から同期
 python import_to_anki.py --fix-mathjax
@@ -60,6 +66,7 @@ python import_to_anki.py --fix-mathjax
 ```
 my-anki-deck-make/
 ├── git_deck.csv / math_deck.csv / emacs_deck.csv / metacog_deck.csv
+├── toeic_deck_meaning.csv / toeic_deck_cloze.csv
 ├── generate_*.py          # 各デッキ CSV 生成
 ├── math_explanations.py   # 数学デッキ解説（Back Extra）
 ├── import_to_anki.py      # AnkiConnect インポート
