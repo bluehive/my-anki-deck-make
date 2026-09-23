@@ -2,6 +2,7 @@
 """
 import_to_anki.py
 AnkiConnect経由で Git / 数学 / Emacs / TOEIC デッキを自動インポートするスクリプト。
+リポジトリ名は REPO_NAME を参照する（ハードコードしない）。
 
 - git_deck.csv          → Basic ノート（Front + Back + 画像）
 - math_deck.csv         → Cloze ノート（Text + MathJax + Back Extra）
@@ -40,6 +41,9 @@ TOEIC_CLOZE_CSV = "toeic_deck_cloze.csv"
 TOEIC_MEDIA_DIR = Path("assets/toeic/media")
 TOEIC_EXPECTED_COUNT = 1062
 
+# リポジトリ名。ディレクトリ表示やドキュメントと揃える。Anki タグとは独立。
+REPO_NAME = "my-anki-deck-make"
+# 既存 Anki ノートの分類キー。リポジトリ改名では変えない（再タグ付けは別作業）。
 PROJECT_TAG = "anki-mydeck-make"
 
 
