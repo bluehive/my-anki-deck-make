@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 import_to_anki.py
-AnkiConnect経由で Git / 数学 / Emacs / TOEIC デッキを自動インポートするスクリプト。
+AnkiConnect経由で Git / 数学 / Emacs / TOEIC / メタ認知 / Python競技 デッキを自動インポートするスクリプト。
 リポジトリ名は REPO_NAME を参照する（ハードコードしない）。
 
 - git_deck.csv          → Basic ノート（Front + Back + 画像）
@@ -9,6 +9,7 @@ AnkiConnect経由で Git / 数学 / Emacs / TOEIC デッキを自動インポー
 - emacs_deck.csv        → Basic ノート（Front + Back + カテゴリタグ）
 - toeic_deck_meaning.csv → Basic ノート（英単語+音声 / 和訳+画像+解説）
 - toeic_deck_cloze.csv  → Cloze ノート（例文穴埋め / 単語+和訳+音声+画像）
+- python_comp_deck.csv  → Cloze ノート（Text + トピックタグ）。--python-comp-only のみ
 """
 
 import argparse
@@ -37,6 +38,10 @@ EMACS_EXPECTED_COUNT = 106
 METACOG_DECK_NAME = "02メタ認知アップ"
 METACOG_CSV = "metacog_deck.csv"
 METACOG_EXPECTED_COUNT = 48
+
+PYTHON_COMP_DECK_NAME = "03 python競技プログラム"
+PYTHON_COMP_CSV = "python_comp_deck.csv"
+PYTHON_COMP_EXPECTED_COUNT = 48
 
 TOEIC_MEANING_DECK_NAME = "TOEIC英単語・意味"
 TOEIC_CLOZE_DECK_NAME = "TOEIC英単語・文脈"
@@ -252,6 +257,24 @@ def add_metacog_note(text: str, tag: str = "") -> bool:
     return invoke("addNote", {"note": note}) is not None
 
 
+def add_python_comp_note(text: str, tag: str = "") -> bool:
+    """Python競技 Cloze カードを追加。再実行は重複追加になる。"""
+    tags = ["python-comp", PROJECT_TAG]
+    if tag:
+        tags.append(tag)
+
+    note = {
+        "deckName": PYTHON_COMP_DECK_NAME,
+        "modelName": "Cloze",
+        "fields": {
+            "Text": text,
+            "Back Extra": "",
+        },
+        "tags": tags,
+    }
+    return invoke("addNote", {"note": note}) is not None
+
+
 def add_emacs_note(front: str, back: str, category: str = "") -> bool:
     """Emacsキー操作カードを追加"""
     tags = ["emacs", PROJECT_TAG]
@@ -384,6 +407,42 @@ def import_metacog_deck() -> tuple[int, int]:
             print("  ✗ カード追加失敗")
 
     print(f"\n--- メタ認知デッキ完了: {success}/{total} カード ---")
+    return success, total
+
+
+def import_python_comp_deck() -> tuple[int, int]:
+    """python_comp_deck.csv をインポート。戻り値: (成功数, 総数)"""
+    if not os.path.exists(PYTHON_COMP_CSV):
+        print(f"エラー: {PYTHON_COMP_CSV} が見つかりません")
+        return 0, 0
+
+    if not ensure_model_exists("Cloze"):
+        return 0, 0
+
+    ensure_deck_exists(PYTHON_COMP_DECK_NAME)
+
+    print("\n=== Python競技デッキのインポート開始 ===")
+    print(f"CSV: {PYTHON_COMP_CSV}")
+    print(f"デッキ: {PYTHON_COMP_DECK_NAME}")
+
+    with open(PYTHON_COMP_CSV, "r", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+
+    total = len(rows)
+    success = 0
+
+    for i, row in enumerate(rows, 1):
+        text = row["Text"]
+        tag = row.get("Tag", "").strip()
+        preview = text[:40]
+        print(f"\n[{i}/{total}] {preview}...")
+        if add_python_comp_note(text, tag):
+            success += 1
+            print("  ✓ カード追加成功")
+        else:
+            print("  ✗ カード追加失敗")
+
+    print(f"\n--- Python競技デッキ完了: {success}/{total} カード ---")
     return success, total
 
 
@@ -724,6 +783,7 @@ def print_usage_guide():
     print(f"   - {MATH_DECK_NAME}")
     print(f"   - {EMACS_DECK_NAME}")
     print(f"   - {METACOG_DECK_NAME}")
+    print(f"   - {PYTHON_COMP_DECK_NAME}")
     print(f"   - {TOEIC_MEANING_DECK_NAME}")
     print(f"   - {TOEIC_CLOZE_DECK_NAME}")
     print("2. 数学デッキの数式は \\(...\\)（MathJax）記法です。")
@@ -740,6 +800,7 @@ def preflight_check(
     check_emacs: bool = True,
     check_toeic: bool = False,
     check_metacog: bool = False,
+    check_python_comp: bool = False,
 ) -> bool:
     """CSV・画像の存在確認（Anki不要）"""
     print("\n=== 事前チェック ===")
@@ -754,6 +815,8 @@ def preflight_check(
         targets.append((EMACS_CSV, "Emacs CSV"))
     if check_metacog:
         targets.append((METACOG_CSV, "メタ認知 CSV"))
+    if check_python_comp:
+        targets.append((PYTHON_COMP_CSV, "Python競技 CSV"))
     if check_toeic:
         targets.append((TOEIC_MEANING_CSV, "TOEIC意味 CSV"))
         targets.append((TOEIC_CLOZE_CSV, "TOEIC Cloze CSV"))
@@ -830,6 +893,21 @@ def preflight_check(
         else:
             print(f"  ✓ 件数: {METACOG_EXPECTED_COUNT}問（上限50以内）")
 
+    if check_python_comp and os.path.exists(PYTHON_COMP_CSV):
+        with open(PYTHON_COMP_CSV, "r", encoding="utf-8") as f:
+            python_comp_rows = list(csv.DictReader(f))
+        print(f"  Python競技カード数: {len(python_comp_rows)}")
+        if len(python_comp_rows) != PYTHON_COMP_EXPECTED_COUNT:
+            print(
+                f"  ✗ 件数不一致（期待: {PYTHON_COMP_EXPECTED_COUNT}, 実際: {len(python_comp_rows)}）"
+            )
+            ok = False
+        elif len(python_comp_rows) > 50:
+            print(f"  ✗ 新規上限50を超えています: {len(python_comp_rows)}")
+            ok = False
+        else:
+            print(f"  ✓ 件数: {PYTHON_COMP_EXPECTED_COUNT}問（上限50以内）")
+
     if check_toeic:
         meaning_rows = []
         cloze_rows = []
@@ -871,6 +949,7 @@ def verify_imported(
     check_emacs: bool = True,
     check_toeic: bool = False,
     check_metacog: bool = False,
+    check_python_comp: bool = False,
 ) -> bool:
     """インポート後の件数確認"""
     print("\n=== インポート結果の検証 ===")
@@ -924,6 +1003,23 @@ def verify_imported(
             )
             all_ok = False
 
+    if check_python_comp:
+        python_comp_count = invoke(
+            "findNotes", {"query": f'deck:"{PYTHON_COMP_DECK_NAME}"'}
+        )
+        if python_comp_count is None:
+            print("  検証APIの呼び出しに失敗しました（Python競技）")
+            return False
+        print(
+            f"  Python競技デッキ ({PYTHON_COMP_DECK_NAME}): {len(python_comp_count)} ノート"
+        )
+        if len(python_comp_count) < PYTHON_COMP_EXPECTED_COUNT:
+            print(
+                "  ⚠ Python競技デッキが不足しています"
+                f"（期待: {PYTHON_COMP_EXPECTED_COUNT}, 実際: {len(python_comp_count)}）"
+            )
+            all_ok = False
+
     if check_toeic:
         meaning_count = invoke("findNotes", {"query": f'deck:"{TOEIC_MEANING_DECK_NAME}"'})
         cloze_count = invoke("findNotes", {"query": f'deck:"{TOEIC_CLOZE_DECK_NAME}"'})
@@ -945,7 +1041,7 @@ def verify_imported(
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="AnkiConnect経由で Git / 数学 / Emacs / TOEIC / メタ認知 デッキをインポート"
+        description="AnkiConnect経由で Git / 数学 / Emacs / TOEIC / メタ認知 / Python競技 デッキをインポート"
     )
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--git-only", action="store_true", help="Gitデッキのみ")
@@ -953,6 +1049,9 @@ def parse_args():
     group.add_argument("--emacs-only", action="store_true", help="Emacsデッキのみ")
     group.add_argument("--toeic-only", action="store_true", help="TOEICデッキのみ")
     group.add_argument("--metacog-only", action="store_true", help="メタ認知デッキのみ")
+    group.add_argument(
+        "--python-comp-only", action="store_true", help="Python競技デッキのみ"
+    )
     parser.add_argument(
         "--preflight", action="store_true", help="CSV/画像の事前チェックのみ（Anki不要）"
     )
@@ -1022,6 +1121,14 @@ def main():
                 check_toeic=False,
                 check_metacog=True,
             )
+        elif args.python_comp_only:
+            ok = preflight_check(
+                check_git=False,
+                check_math=False,
+                check_emacs=False,
+                check_toeic=False,
+                check_python_comp=True,
+            )
         else:
             ok = preflight_check(check_toeic=True)
         sys.exit(0 if ok else 1)
@@ -1039,6 +1146,7 @@ def main():
         sys.exit(0)
 
     import_git = import_math = import_emacs = import_toeic = import_metacog = False
+    import_python_comp = False
     if args.git_only:
         import_git, import_math, import_emacs, import_toeic, import_metacog = (
             True, False, False, False, False,
@@ -1059,13 +1167,21 @@ def main():
         import_git, import_math, import_emacs, import_toeic, import_metacog = (
             False, False, False, False, True,
         )
+    elif args.python_comp_only:
+        import_python_comp = True
     else:
-        # 既存デッキの再実行は重複追加になる。新デッキは --metacog-only のみ。
+        # 既存デッキの再実行は重複追加になる。新デッキは --*-only のみ。
         import_git = import_math = import_emacs = import_toeic = True
         import_metacog = False
+        import_python_comp = False
 
     if not preflight_check(
-        import_git, import_math, import_emacs, import_toeic, import_metacog
+        import_git,
+        import_math,
+        import_emacs,
+        import_toeic,
+        import_metacog,
+        import_python_comp,
     ):
         sys.exit(1)
 
@@ -1081,6 +1197,7 @@ def main():
     emacs_result = (0, 0)
     toeic_result = (0, 0, 0, 0)
     metacog_result = (0, 0)
+    python_comp_result = (0, 0)
 
     if import_git:
         git_result = import_git_deck()
@@ -1090,6 +1207,8 @@ def main():
         emacs_result = import_emacs_deck()
     if import_metacog:
         metacog_result = import_metacog_deck()
+    if import_python_comp:
+        python_comp_result = import_python_comp_deck()
     if import_toeic:
         toeic_result = import_toeic_decks(
             skip_media=args.skip_media,
@@ -1107,6 +1226,11 @@ def main():
         print(f"Emacsデッキ ({EMACS_DECK_NAME}): {emacs_result[0]}/{emacs_result[1]}")
     if import_metacog:
         print(f"メタ認知デッキ ({METACOG_DECK_NAME}): {metacog_result[0]}/{metacog_result[1]}")
+    if import_python_comp:
+        print(
+            f"Python競技デッキ ({PYTHON_COMP_DECK_NAME}): "
+            f"{python_comp_result[0]}/{python_comp_result[1]}"
+        )
     if import_toeic:
         print(
             f"TOEICパターンA ({TOEIC_MEANING_DECK_NAME}): "
@@ -1120,10 +1244,12 @@ def main():
     total_ok = (
         git_result[0] + math_result[0] + emacs_result[0]
         + toeic_result[0] + toeic_result[2] + metacog_result[0]
+        + python_comp_result[0]
     )
     total_all = (
         git_result[1] + math_result[1] + emacs_result[1]
         + toeic_result[1] + toeic_result[3] + metacog_result[1]
+        + python_comp_result[1]
     )
     print(f"合計: {total_ok}/{total_all} カード")
 
@@ -1131,7 +1257,12 @@ def main():
         sys.exit(1)
 
     verify_imported(
-        import_git, import_math, import_emacs, import_toeic, import_metacog
+        import_git,
+        import_math,
+        import_emacs,
+        import_toeic,
+        import_metacog,
+        import_python_comp,
     )
     print_usage_guide()
 
