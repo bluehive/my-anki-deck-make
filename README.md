@@ -12,6 +12,7 @@ Anki 向け学習デッキを CSV 生成し、[AnkiConnect](https://foosoft.net/
 | 高校数学・基礎解析 | 100 | Cloze + MathJax + 解説 | `math_deck.csv` |
 | Emacsキー操作 | 106 | Basic | `emacs_deck.csv` |
 | 02メタ認知アップ | 48 | Cloze | `metacog_deck.csv` |
+| 03 python競技プログラム | 48 | Cloze | `python_comp_deck.csv` |
 | TOEIC英単語・意味 | 1062 | Basic | `toeic_deck_meaning.csv` |
 | TOEIC英単語・文脈 | 1043 | Cloze | `toeic_deck_cloze.csv` |
 
@@ -34,6 +35,7 @@ python generate_git_deck.py
 python generate_math_deck.py
 python generate_emacs_deck.py
 python generate_metacog_deck.py
+python generate_python_comp_deck.py
 python generate_toeic_deck.py
 ```
 
@@ -47,15 +49,18 @@ python import_to_anki.py --git-only
 python import_to_anki.py --math-only
 python import_to_anki.py --emacs-only
 python import_to_anki.py --metacog-only
+python import_to_anki.py --python-comp-only
 python import_to_anki.py --toeic-only
 
-# 引数なしは Git / 数学 / Emacs / TOEIC を追加する。02メタ認知アップは含まない。
+# 引数なしは Git / 数学 / Emacs / TOEIC を追加する。
+# 02メタ認知アップと 03 python競技プログラムは含まない。
 # 既存カードがあるデッキでは使わない。
 python import_to_anki.py
 
 # 事前チェックのみ（Anki 不要）
 python import_to_anki.py --preflight
 python import_to_anki.py --preflight --metacog-only
+python import_to_anki.py --preflight --python-comp-only
 
 # 数学デッキの Text / 解説を CSV から同期
 python import_to_anki.py --fix-mathjax
@@ -66,6 +71,7 @@ python import_to_anki.py --fix-mathjax
 ```
 my-anki-deck-make/
 ├── git_deck.csv / math_deck.csv / emacs_deck.csv / metacog_deck.csv
+├── python_comp_deck.csv
 ├── toeic_deck_meaning.csv / toeic_deck_cloze.csv
 ├── generate_*.py          # 各デッキ CSV 生成
 ├── math_explanations.py   # 数学デッキ解説（Back Extra）
