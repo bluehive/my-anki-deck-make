@@ -16,6 +16,8 @@ Anki 向け学習デッキを CSV 生成し、[AnkiConnect](https://foosoft.net/
 | TOEIC英単語・意味 | 1062 | Basic | `toeic_deck_meaning.csv` |
 | TOEIC英単語・文脈 | 1043 | Cloze | `toeic_deck_cloze.csv` |
 
+TOEIC の約100ノートには、採点対象ではないフィールド「語源・接辞」を足してある。選び方と検証は `data/issue7/`。空のノートでは表示されない。
+
 ## 必要環境
 
 - Python 3.10+

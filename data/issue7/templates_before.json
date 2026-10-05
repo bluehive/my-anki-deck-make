@@ -1,0 +1,28 @@
+{
+  "Basic": {
+    "fields": [
+      "Front",
+      "Back"
+    ],
+    "templates": {
+      "Card 1": {
+        "Front": " {{Front}}",
+        "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}"
+      }
+    },
+    "css": ".card {\n font-family: latin modern roman;\n font-size: 24px;\n text-align: left;\n color: black;\n background-color: white;\n}\n\nu { font-family: courier new; text-decoration: none; }\n"
+  },
+  "Cloze": {
+    "fields": [
+      "Text",
+      "Back Extra"
+    ],
+    "templates": {
+      "Cloze": {
+        "Front": "{{edit:cloze:Text}}",
+        "Back": "{{edit:cloze:Text}}<br>\n{{edit:Back Extra}}"
+      }
+    },
+    "css": ".card {\n    font-family: arial;\n    font-size: 20px;\n    text-align: center;\n    color: black;\n    background-color: white;\n}\n\n.cloze {\n font-weight: bold;\n color: blue;\n}\n.nightMode .cloze {\n color: lightblue;\n}\n"
+  }
+}
