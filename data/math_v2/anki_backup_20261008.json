@@ -1,0 +1,2907 @@
+{
+  "deck": "高校数学・基礎解析",
+  "exported_at": "2026-10-08T23:41:13+09:00",
+  "note_count": 100,
+  "notes": [
+    {
+      "noteId": 1783524834748,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(a^{-n} = {{c1::\\frac{1}{a^n} }}\\)（a ≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "負の指数は「分母に回す」という意味です。<br>a⁻ⁿ = 1/aⁿ なので、a³ の逆は 1/a³。<br>条件：a ≠ 0（0で割れない）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524834748
+      ]
+    },
+    {
+      "noteId": 1783524836844,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(a^0 = {{c1::1 }}\\)（a ≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "どんな数でも、0乗は1になります。<br>例：5⁰ = 1、(-3)⁰ = 1。<br>条件：a ≠ 0（0⁰は定義しない）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524836844
+      ]
+    },
+    {
+      "noteId": 1783524838903,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(a^{\\frac{1}{2}} = {{c1::\\sqrt{a} }}\\)（a ≥ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "指数 1/2 は平方根（√）と同じ意味です。<br>a^(1/2) = √a なので、4^(1/2) = 2。<br>条件：a ≥ 0（実数の平方根は非負）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524838903
+      ]
+    },
+    {
+      "noteId": 1783524840967,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(a^m \\cdot a^n = {{c1::a^{m+n} }}\\)（a&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "同じ底の掛け算は、指数を足します。<br>a² × a³ = a⁵ のように、指数だけ計算。<br>条件：a &gt; 0（負の底は別扱いになることがある）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791470080,
+      "cards": [
+        1783524840967
+      ]
+    },
+    {
+      "noteId": 1783524843065,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((a^m)^n = {{c1::a^{mn} }}\\)（a&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "指数の外側にさらに指数が付くときは、掛け算します。<br>(a²)³ = a⁶ のように、2×3 = 6。<br>条件：a &gt; 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791470018,
+      "cards": [
+        1783524843065
+      ]
+    },
+    {
+      "noteId": 1783524845156,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((ab)^n = {{c1::a^n b^n }}\\)（a>0,, b>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "積のn乗は、それぞれのn乗の積にできます。<br>(2×3)² = 2² × 3² = 4×9 = 36。<br>条件：a > 0, b > 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524845156
+      ]
+    },
+    {
+      "noteId": 1783524847242,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\frac{a^m}{a^n} = {{c1::a^{m-n} }}\\)（a>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "同じ底の割り算は、指数を引きます。<br>a⁵ ÷ a² = a³ のように、5−2 = 3。<br>条件：a > 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524847242
+      ]
+    },
+    {
+      "noteId": 1783524849332,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sqrt[n]{b^m} = {{c1::b^{\\frac{m}{n} } }}\\)（b&gt;0。n が偶数なら被開方数 ≥ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "n乗根は分数指数に直せます。<br>³√b² = b^(2/3) のように、根号の外と中を分数で表す。<br>条件：b &gt; 0（nが偶数なら被開方数 ≥ 0）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791470032,
+      "cards": [
+        1783524849332
+      ]
+    },
+    {
+      "noteId": 1783524851407,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sqrt{(-6)^2} = {{c1::6 }}\\)（偶数乗根の注意）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "平方根は「絶対値」として答えるのが正しい。<br>√((-6)²) = √36 = 6（-6ではない）。<br>偶数乗根は常に非負の答えになる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524851407
+      ]
+    },
+    {
+      "noteId": 1783524853488,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "指数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sqrt[3]{-27} = {{c1::-3 }}\\)（奇数乗根は負の数も取れる）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "奇数乗根は負の数も取れます。<br>³√(-27) = -3（(-3)³ = -27）。<br>偶数乗根と違い、符号がそのまま残る",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524853488
+      ]
+    },
+    {
+      "noteId": 1783524855569,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(a^x = b \\;\\Leftrightarrow\\; x = {{c1::\\log_a b }}\\)（a>0,, a ≠ 1,, b>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "対数は「指数の逆操作」です。<br>aˣ = b なら x = logₐ b（aを何乗すればbか）。<br>条件：a > 0, a ≠ 1, b > 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524855569
+      ]
+    },
+    {
+      "noteId": 1783524857653,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\log_a(bc) = {{c1::\\log_a b + \\log_a c }}\\)（a>0,, a≠ 1,, b>0,, c>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "対数の積は、対数の和に分けられます。<br>log₂(8×4) = log₂8 + log₂4 = 3 + 2 = 5。<br>条件：底・真数はすべて正、底 ≠ 1",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524857653
+      ]
+    },
+    {
+      "noteId": 1783524859703,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\log_a\\!\\left(\\frac{b}{c}\\right) = {{c1::\\log_a b - \\log_a c }}\\)（a>0,, a≠ 1,, b>0,, c>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "対数の商は、対数の差になります。<br>log₃(27/9) = log₃27 − log₃9 = 3 − 2 = 1。<br>条件：底・真数はすべて正、底 ≠ 1",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524859703
+      ]
+    },
+    {
+      "noteId": 1783524861794,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\log_a(b^n) = {{c1::n \\log_a b }}\\)（a&gt;0,, a≠ 1,, b&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "対数の中の指数は、外に出せます。<br>log₂(8³) = 3 log₂8 = 3×3 = 9。<br>条件：底・真数はすべて正、底 ≠ 1",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791469996,
+      "cards": [
+        1783524861794
+      ]
+    },
+    {
+      "noteId": 1783524863881,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\log_a b = \\frac{\\log_c b}{ {{c1::\\log_c a}}} \\)（底の変換。a&gt;0,, a≠ 1,, b&gt;0,, c&gt;0,, c≠ 1,, a≠ c）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "底を変えても値は同じ。共通の底cで割る形にします。<br>log₂8 = log₁₀8 ÷ log₁₀2 のように使う。<br>条件：a, b, c > 0、各底 ≠ 1、a ≠ c",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524863881
+      ]
+    },
+    {
+      "noteId": 1783524866001,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\log_a a = {{c1::1 }}\\)（a>0,, a≠ 1）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "底と真数が同じなら、対数は1です。<br>log₅5 = 1（5¹ = 5）。<br>条件：a > 0, a ≠ 1",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524866001
+      ]
+    },
+    {
+      "noteId": 1783524868092,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\log_a 1 = {{c1::0 }}\\)（a>0,, a≠ 1）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "1の対数は、どんな底でも0です。<br>a⁰ = 1 だから logₐ1 = 0。<br>条件：a > 0, a ≠ 1",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524868092
+      ]
+    },
+    {
+      "noteId": 1783524870156,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\log_{10} 100 = {{c1::2 }}\\)（常用対数）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "常用対数 log₁₀ は10を何乗すれば…という意味。<br>log₁₀100 = 2（10² = 100）。<br>電卓の「log」ボタンがこれ",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524870157
+      ]
+    },
+    {
+      "noteId": 1783524872225,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(10^n\\)（n は0以上の整数）の桁数は {{c1::n+1}} 桁",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "10のn乗の桁数は n+1 桁です。<br>10³ = 1000 → 4桁、10⁰ = 1 → 1桁。<br>条件：n は0以上の整数",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524872225
+      ]
+    },
+    {
+      "noteId": 1783524874322,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "対数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(N \\geq 1\\) の正の実数 N の桁数は \\[\\log_{10} N\\] + {{c1::1 }}（[, ] はガウス記号）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "任意の正の数Nの桁数は [log₁₀N] + 1。<br>例：N=500 → log₁₀500≈2.7 → [2.7]+1=3桁。<br>[ ]はガウス記号（小数点以下切り捨て）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524874322
+      ]
+    },
+    {
+      "noteId": 1783524876417,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\tan\\theta = {{c1::\\frac{\\sin\\theta}{\\cos\\theta} }}\\)（cosθ ≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "tanは sin÷cos の比です。<br>tanθ = sinθ/cosθ で、直角三角形の対辺÷隣辺。<br>条件：cosθ ≠ 0（θ = π/2 + nπ で未定義）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524876417
+      ]
+    },
+    {
+      "noteId": 1783524878513,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(y = \\tan\\theta\\) の定義域：θ ≠ {{c1::π/2 + nπ }}（n は整数）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "tanは cosが0になると発散します。<br>定義域：θ ≠ π/2 + nπ（nは整数）。<br>縦漸近線が π/2, 3π/2, … にある",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524878513
+      ]
+    },
+    {
+      "noteId": 1783524880584,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin(-\\theta) = {{c1::-\\sin\\theta }}\\)（奇関数）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "sinは奇関数：符号が反転します。<br>sin(-θ) = −sinθ、グラフは原点対称。<br>例：sin(-30°) = −sin30° = −1/2",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524880584
+      ]
+    },
+    {
+      "noteId": 1783524882680,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos(-\\theta) = {{c1::\\cos\\theta }}\\)（偶関数）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "cosは偶関数：符号は変わりません。<br>cos(-θ) = cosθ、グラフはy軸対称。<br>例：cos(-60°) = cos60° = 1/2<div><br></div><div><br></div><div><img src=\"paste-ee50a7478828f937c1bff3e3718eec1e82272dcf.png\"><br></div>",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524882680
+      ]
+    },
+    {
+      "noteId": 1783524884754,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\tan(-\\theta) = {{c1::-\\tan\\theta }}\\)（奇関数）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "tanも奇関数です。<br>tan(-θ) = −tanθ、sinと同様に符号が反転。<br>例：tan(-45°) = −1",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524884754
+      ]
+    },
+    {
+      "noteId": 1783524886840,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(y = \\sin(k\\theta)\\) の周期は は {{c1::\\( \\dfrac{2\\pi}{k} \\)}}（k&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "y = sin(kθ) の周期は 2π/k です。<br>kが大きいほど波が細かく、周期は短くなる。<br>条件：k > 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524886840
+      ]
+    },
+    {
+      "noteId": 1783524888924,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\( y = \\cos(k\\theta) \\) の周期は {{c1::\\( \\dfrac{2\\pi}{k} \\)}} （k&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "y = cos(kθ) の周期も 2π/k です。<br>sinと同じ周期の考え方。<br>条件：k > 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524888924
+      ]
+    },
+    {
+      "noteId": 1783524891016,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(y = \\tan(k\\theta)\\) の周期は {{c1::\\(\\frac{π}{k} \\) }}（k&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "y = tan(kθ) の周期は π/k です。<br>tanはsin/cosより周期が半分（π）なので、sinの半分になる。<br>条件：k &gt; 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791470058,
+      "cards": [
+        1783524891016
+      ]
+    },
+    {
+      "noteId": 1783524893107,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(y = A\\sin\\theta\\) の振幅は {{c1::|A| }}",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "振幅は波の「高さの半分」です。<br>y = A sinθ の振幅は |A|（Aが負でも高さは|A|）。<br>例：y = −3sinθ の振幅も3",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524893107
+      ]
+    },
+    {
+      "noteId": 1783524895174,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(y = \\sin(\\theta - a)\\) のグラフは y = sinθ を θ 軸方向に {{c1::+a}} だけ平行移動したもの",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "y = sin(θ − a) は右にaだけ平行移動。<br>位相（いそう）a &gt; 0 ならグラフは右へずれる。<br>「θ − a」なので +a 方向にシフト<div><br></div><div>&nbsp;<img src=\"image-0b8386dd439ea70a25194dba8beee6cacfe2ee4d.png\">&nbsp;</div>",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524895175
+      ]
+    },
+    {
+      "noteId": 1783524897252,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "加法定理",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin(\\alpha + \\beta) = {{c1::\\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "sinの加法定理：角度の和のsinを展開します。<br>sin(α+β) = sinα cosβ + cosα sinβ。<br>覚え方：sinは「同じ符号で＋」",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524897252
+      ]
+    },
+    {
+      "noteId": 1783524899321,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "加法定理",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin(\\alpha - \\beta) = {{c1::\\sin\\alpha\\cos\\beta - \\cos\\alpha\\sin\\beta }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "sinの加法定理（差の形）。<br>sin(α−β) = sinα cosβ − cosα sinβ。<br>＋のときは＋、−のときは−で符号が変わる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524899321
+      ]
+    },
+    {
+      "noteId": 1783524901383,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "加法定理",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos(\\alpha + \\beta) = {{c1::\\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "cosの加法定理：角度の和のcosを展開します。<br>cos(α+β) = cosα cosβ − sinα sinβ。<br>覚え方：cosは「符号が交互に−」",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524901383
+      ]
+    },
+    {
+      "noteId": 1783524903444,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "加法定理",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos(\\alpha - \\beta) = {{c1::\\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "cosの加法定理（差の形）。<br>cos(α−β) = cosα cosβ + sinα sinβ。<br>＋のとき中の−が＋に、−のとき＋が−に",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524903444
+      ]
+    },
+    {
+      "noteId": 1783524905538,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "加法定理",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\tan(\\alpha + \\beta) = \\frac{\\tan\\alpha + \\tan\\beta}{ {{c1::1 - \\tan\\alpha\\tan\\beta}} } \\)（α+β ≠ π/2+nπ）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "tanの加法定理。分子は足し算、分母は引き算。<br>tan(α+β) = (tanα + tanβ)/(1 − tanα tanβ)。<br>条件：α+β ≠ π/2 + nπ",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524905538
+      ]
+    },
+    {
+      "noteId": 1783524907600,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "倍角",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin 2\\theta = {{c1::2\\sin\\theta\\cos\\theta }}\\)（倍角の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "倍角の公式：sin2θ = 2 sinθ cosθ。<br>加法定理で β=θ とすると導けます。<br>例：sin60° = 2×(1/2)×(√3/2) = √3/2",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524907600
+      ]
+    },
+    {
+      "noteId": 1783524909695,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "倍角",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos 2\\theta = {{c1::\\cos^2\\theta - \\sin^2\\theta }}\\)（倍角の公式・第1形）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "cos2θの第1形：cos²θ − sin²θ。<br>加法定理 cos(θ+θ) から導出。<br>他の形に変形するときの出発点",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524909695
+      ]
+    },
+    {
+      "noteId": 1783524911787,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "倍角",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos 2\\theta = {{c1::2\\cos^2\\theta - 1 }}\\)（倍角の公式・第2形）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "cos2θの第2形：2cos²θ − 1。<br>cos²θ − sin²θ に sin²θ = 1−cos²θ を代入。<br>cosだけで表したいとき便利",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524911787
+      ]
+    },
+    {
+      "noteId": 1783524913903,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "倍角",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos 2\\theta = {{c1::1 - 2\\sin^2\\theta }}\\)（倍角の公式・第3形）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "cos2θの第3形：1 − 2sin²θ。<br>sin²θ = 1−cos²θ を代入した形。<br><br><div>•  第2形（2\\cos^2\\theta - 1）と対になる形だと意識する。</div><div> → cos側なら「2倍して引く」、sin側なら「2倍して引く」。</div>",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524913903
+      ]
+    },
+    {
+      "noteId": 1783524915993,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "倍角",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\tan 2\\theta = \\frac{2\\tan\\theta}{ {{c1::1 - \\tan^2\\theta}} }\\)（倍角の公式。2θ ≠ π/2+nπ）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "tan2θ = 2tanθ/(1 − tan²θ)。<br>tanの加法定理で β=θ とした倍角形。<br>条件：2θ ≠ π/2 + nπ",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524915993
+      ]
+    },
+    {
+      "noteId": 1783524918070,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "半角",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin^2\\frac{\\theta}{2} = {{c1::\\frac{1 - \\cos\\theta}{2} }}\\)（半角の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "半角の公式：sin²(θ/2) = (1 − cosθ)/2。<br>cos2θ = 1 − 2sin²θ から θ を θ/2 に置き換えた形。<br>積分や降べきに使う",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524918070
+      ]
+    },
+    {
+      "noteId": 1783524920129,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "半角",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos^2\\frac{\\theta}{2} = {{c1::\\frac{1 + \\cos\\theta}{2} }}\\)（半角の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "半角の公式：cos²(θ/2) = (1 + cosθ)/2。<br>cos2θ = 2cos²θ − 1 から導出。<br>sin²(θ/2)とセットで覚える",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524920129
+      ]
+    },
+    {
+      "noteId": 1783524922222,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "合成",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(a\\sin\\theta + b\\cos\\theta&nbsp;<div>= R\\sin(\\theta + \\alpha)\\) において&nbsp;<div>R = {{c1:: \\(\\sqrt{a^2 + b^2}\\) &nbsp;}}</div></div>",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成：a sinθ + b cosθ = R sin(θ+α) の R。<br>R = √(a² + b²) は振幅（最大値）。<br>例：3sinθ + 4cosθ → R = 5",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524922222
+      ]
+    },
+    {
+      "noteId": 1783524924297,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "合成",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(a\\sin\\theta + b\\cos\\theta = R\\sin(\\theta + \\alpha)\\) において tanα = {{c1::\\(\\frac{b}{a}\\) }}（a&gt;0,, a≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成の位相α：tanα = b/a。<br>a &gt; 0 のとき α は第1・4象限の角。<br>R sin(θ+α) に直すと最大・最小がわかりやすい",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791470091,
+      "cards": [
+        1783524924297
+      ]
+    },
+    {
+      "noteId": 1783524926376,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "積和"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin\\alpha\\cos\\beta = \\frac{1}{2}\\bigl[\\sin(\\alpha+\\beta) + {{c1::\\sin(\\alpha-\\beta)}}\\bigr]\\)（積和の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "積→和：sinα cosβ を和に直す公式。<br>sinα cosβ = ½[sin(α+β) + sin(α−β)]。<br>積の形を和に変えると計算が楽になる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524926376
+      ]
+    },
+    {
+      "noteId": 1783524928437,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "積和"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos\\alpha\\cos\\beta = \\frac{1}{2}\\bigl[\\cos(\\alpha+\\beta) + {{c1::\\cos(\\alpha-\\beta)}}\\bigr]\\)（積和の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "積→和：cosα cosβ の公式。<br>cosα cosβ = ½[cos(α+β) + cos(α−β)]。<br>sinα cosβ と似ているが cos 同士",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524928437
+      ]
+    },
+    {
+      "noteId": 1783524930526,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "積和"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin\\alpha\\sin\\beta = -\\frac{1}{2}\\bigl[\\cos(\\alpha+\\beta) - {{c1::\\cos(\\alpha-\\beta)}}\\bigr]\\)（積和の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "積→和：sinα sinβ の公式（マイナスに注意）。<br>sinα sinβ = −½[cos(α+β) − cos(α−β)]。<br>符号の−を忘れないこと",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524930526
+      ]
+    },
+    {
+      "noteId": 1783524932604,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "和積",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}{{c1::\\cos\\frac{A-B}{2} }}\\)（和積の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "和→積：sinA + sinB を積に。<br>sinA + sinB = 2 sin((A+B)/2) cos((A−B)/2)。<br>「和のsin、差のcos」の形",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524932604
+      ]
+    },
+    {
+      "noteId": 1783524934689,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "和積",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}{{c1::\\sin\\frac{A-B}{2} }}\\)（和積の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "和→積：sinA − sinB を積に。<br>sinA − sinB = 2 cos((A+B)/2) sin((A−B)/2)。<br>＋のときcos、−のときsinが差の側",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524934689
+      ]
+    },
+    {
+      "noteId": 1783524936778,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "和積",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}{{c1::\\cos\\frac{A-B}{2} }}\\)（和積の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "和→積：cosA + cosB を積に。<br>cosA + cosB = 2 cos((A+B)/2) cos((A−B)/2)。<br>両方cosの積になる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524936778
+      ]
+    },
+    {
+      "noteId": 1783524938860,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "和積",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos A - \\cos B = -2\\sin\\frac{A+B}{2}{{c1::\\sin\\frac{A-B}{2} }}\\)（和積の公式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "和→積：cosA − cosB を積に（符号注意）。<br>cosA − cosB = −2 sin((A+B)/2) sin((A−B)/2)。<br>先頭の−2を忘れない",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524938860
+      ]
+    },
+    {
+      "noteId": 1783524940921,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin^2\\theta + \\cos^2\\theta = {{c1::1 }}\\)（基本恒等式）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "最も基本の三角恒等式。<br>sin²θ + cos²θ = 1（単位円上の座標から導かれる）。<br>他の公式の土台になる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524940922
+      ]
+    },
+    {
+      "noteId": 1783524942981,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(1 + \\tan^2\\theta = {{c1::\\frac{1}{\\cos^2\\theta} }}\\)（基本恒等式。cosθ ≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "tanとcosの関係式。<br>1 + tan²θ = 1/cos²θ（両辺をcos²θで割ると導ける）。<br>条件：cosθ ≠ 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524942981
+      ]
+    },
+    {
+      "noteId": 1783524945049,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin\\!\\left(\\frac{\\pi}{2} - \\theta\\right) = {{c1::\\cos\\theta }}\\)（余角の関係）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "余角の関係：sin(π/2 − θ) = cosθ。<br>「90°−θ」と「θ」は余角で、sinとcosが入れ替わる。<br>例：sin30° = cos60°",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524945050
+      ]
+    },
+    {
+      "noteId": 1783524947135,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos(\\pi - \\theta) = {{c1::-\\cos\\theta }}\\)（対称性）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "対称性：cos(π − θ) = −cosθ。<br>θをπ−θに置くとcosの符号が反転。<br>例：cos120° = −cos60° = −1/2",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524947135
+      ]
+    },
+    {
+      "noteId": 1783524949193,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin\\frac{\\pi}{6} = {{c1::\\frac{1}{2} }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "特殊角：sin(π/6) = sin30° = 1/2。<br>単位円または30-60-90三角形で確認。<br>暗記の基本値",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524949193
+      ]
+    },
+    {
+      "noteId": 1783524951250,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos\\frac{\\pi}{3} = {{c1::\\frac{1}{2} }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "特殊角：cos(π/3) = cos60° = 1/2。<br>cos60° = sin30°（余角の関係）。<br>√3/2 とセットで覚える",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524951251
+      ]
+    },
+    {
+      "noteId": 1783524953310,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\tan\\frac{\\pi}{4} = {{c1::1 }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "特殊角：tan(π/4) = tan45° = 1。<br>45°は sin=cos=√2/2 なので比は1。<br>最も覚えやすい値",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524953310
+      ]
+    },
+    {
+      "noteId": 1783524955403,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\sin\\frac{\\pi}{3} = {{c1::\\frac{\\sqrt{3}}{2} }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "特殊角：sin(π/3) = sin60° = √3/2。<br>30-60-90三角形の最長辺の比。<br>cos30° = 1/2 と対になる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524955403
+      ]
+    },
+    {
+      "noteId": 1783524957452,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "三角関数",
+        "基礎解析"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\cos\\frac{\\pi}{4} = {{c1::\\frac{\\sqrt{2}}{2} }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "特殊角：cos(π/4) = cos45° = √2/2。<br>sin45°と同じ値（45°は対称）。<br>1/√2 と同義",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524957452
+      ]
+    },
+    {
+      "noteId": 1783524959525,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(i^2 = {{c1::-1 }}\\)（虚数単位）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "虚数単位 i の定義。<br>i² = −1 なので、i³ = −i、i⁴ = 1 と循環。<br>実数では解けない方程式のために導入",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524959525
+      ]
+    },
+    {
+      "noteId": 1783524961609,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "オイラーの公式：\\(e^{i\\theta} = {{c1::\\cos\\theta + i\\sin\\theta }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "オイラーの公式：e^(iθ) = cosθ + i sinθ。<br>複素数平面で単位円上の点を表す。<br>極形式と三角関数を結びつける",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524961609
+      ]
+    },
+    {
+      "noteId": 1783524963706,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "ド・モアブルの定理：\\((\\cos\\theta + i\\sin\\theta)^n = {{c1::\\cos(n\\theta) + i\\sin(n\\theta) }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "ド・モアブルの定理：(cosθ + i sinθ)ⁿ = cos(nθ) + i sin(nθ)。<br>オイラー公式のn乗版。角度がn倍になる。<br>(1+i)ⁿ などの計算に使う",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524963706
+      ]
+    },
+    {
+      "noteId": 1783524965768,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "複素数 \\(z = a + bi\\) の絶対値は |z| = {{c1::\\sqrt{a^2 + b^2} }}",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "複素数 z = a + bi の絶対値（大きさ）。<br>|z| = √(a² + b²)（原点からの距離）。<br>例：|3+4i| = √(9+16) = 5",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524965768
+      ]
+    },
+    {
+      "noteId": 1783524967828,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(z = a + bi\\) の共役複素数は \\bar{z} = {{c1::a - bi }}",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "共役複素数：実部は同じ、虚部の符号を反転。<br>z = a+bi なら z̄ = a−bi。<br>|z|² = z × z̄ の計算に使う",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524967828
+      ]
+    },
+    {
+      "noteId": 1783524969936,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "極形式：\\(z = r(\\cos\\theta + i\\sin\\theta)\\) のとき r = {{c1::|z| }}、θ は偏角",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "極形式 z = r(cosθ + i sinθ) の r。<br>r = |z|（絶対値）、θは偏角（arg z）。<br>平面上の「長さ」と「向き」で表す",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524969936
+      ]
+    },
+    {
+      "noteId": 1783524972034,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "複素数 \\(z \\neq 0\\) の n 乗根（n は2以上の整数）は {{c1::n 個}} 存在する",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "0でない複素数のn乗根は必ずn個。<br>例：z² = 1 なら z = ±1 の2個。<br>実数と違い、負の数にも複数の根がある",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524972034
+      ]
+    },
+    {
+      "noteId": 1783524974125,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(z^n = w\\)（z ≠ 0）の n 乗根は複素数平面上で {{c1::正n角形}} の頂点に並ぶ",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "n乗根は複素平面で正n角形の頂点に並ぶ。<br>中心は原点、半径は |w|^(1/n)。<br>各頂点の角度は 2π/n ずつずれる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524974125
+      ]
+    },
+    {
+      "noteId": 1783524976221,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((1 + i)^2 = {{c1::2i }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "計算例：(1 + i)² = 1 + 2i + i² = 1 + 2i − 1 = 2i。<br>極形式で r=√2, θ=π/4 としても確認できる。<br>よく出るパターン",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524976221
+      ]
+    },
+    {
+      "noteId": 1783524978290,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "複素数"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(z \\cdot \\bar{z} = {{c1::|z|^2 }}\\)（共役と絶対値の関係）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "z と共役の積は絶対値の2乗。<br>z × z̄ = |z|²（実数になる）。<br>例：(3+4i)(3−4i) = 9+16 = 25",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524978290
+      ]
+    },
+    {
+      "noteId": 1783524980377,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "極限"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\lim_{x \\to 0} \\frac{\\sin x}{x} = {{c1::1 }}\\)（基本極限）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "基本極限：lim(x→0) sinx/x = 1。<br>弧度法で x が小さいとき sinx ≈ x。<br>多くの三角関数の極限の出発点",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524980377
+      ]
+    },
+    {
+      "noteId": 1783524982456,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "極限"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\lim_{x \\to 0} \\frac{\\tan x}{x} = {{c1::1 }}\\)（基本極限）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "基本極限：lim(x→0) tanx/x = 1。<br>tanx = sinx/cosx より sinx/x ÷ cosx → 1。<br>sinx/x と同様に覚える",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524982456
+      ]
+    },
+    {
+      "noteId": 1783524984515,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "極限"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\lim_{x \\to 0} \\frac{1 - \\cos x}{x^2} = {{c1::\\frac{1}{2} }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "lim(x→0) (1−cosx)/x² = 1/2。<br>1−cosx ≈ x²/2（小さい角の近似）。<br>分子を sin²x で変形して導くことも多い",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524984515
+      ]
+    },
+    {
+      "noteId": 1783524986602,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "極限"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(1 - \\cos x\\) を含む極限では分子・分母に {{c1::1 + cos x }} を掛けて sin^2 x を作る",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "1−cosx を含む極限の定番テクニック。<br>分子・分母に (1+cosx) を掛けて sin²x を作る。<br>(1−cosx)(1+cosx) = sin²x で約分しやすくなる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524986602
+      ]
+    },
+    {
+      "noteId": 1783524988697,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\sin x)' = {{c1::\\cos x }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分の基本：(sinx)' = cosx。<br>sinx を微分すると位相が π/2 進んだ cosx。<br>合成関数では外側も掛ける",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524988697
+      ]
+    },
+    {
+      "noteId": 1783524990778,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\cos x)' = {{c1::-\\sin x }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分の基本：(cosx)' = −sinx。<br>cosx の微分は符号が反転した sinx。<br>(sin x)' = cos x とセットで覚える",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524990778
+      ]
+    },
+    {
+      "noteId": 1783524992859,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\tan x)' = {{c1::\\frac{1}{\\cos^2 x} }}\\)（cos x ≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(tanx)' = 1/cos²x（= sec²x）。<br>tanx = sinx/cosx を商の微分で求める。<br>条件：cosx ≠ 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524992859
+      ]
+    },
+    {
+      "noteId": 1783524994927,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((e^x)' = {{c1::e^x }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(eˣ)' = eˣ。<br>自然指数関数は微分しても自分自身。<br>最も重要な微分公式のひとつ",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524994927
+      ]
+    },
+    {
+      "noteId": 1783524997007,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((a^x)' = {{c1::a^x \\ln a }}\\)（a>0,, a ≠ 1）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(aˣ)' = aˣ ln a。<br>eˣ より ln a が余分に付く（底がeでないため）。<br>条件：a > 0, a ≠ 1",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524997007
+      ]
+    },
+    {
+      "noteId": 1783524999071,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\ln x)' = {{c1::\\frac{1}{x} }}\\)（x>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(lnx)' = 1/x。<br>自然対数の微分は引数の逆数。<br>条件：x > 0（定義域に注意）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783524999071
+      ]
+    },
+    {
+      "noteId": 1783525001175,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\log_a x)' = {{c1::\\frac{1}{x \\ln a} }}\\)（x>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(logₐx)' = 1/(x ln a)。<br>lnx の公式に底の変換分 1/ln a が付く。<br>条件：x > 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525001175
+      ]
+    },
+    {
+      "noteId": 1783525003272,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\sin 2x)' = {{c1::2\\cos 2x }}\\)（合成関数の微分）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分例：(sin2x)' = 2cos2x。<br>外側(cos) × 内側(2) = 2cos2x。<br>「外の微分 × 内の微分」",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525003272
+      ]
+    },
+    {
+      "noteId": 1783525005324,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\cos 3x)' = {{c1::-3\\sin 3x }}\\)（合成関数の微分）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分例：(cos3x)' = −3sin3x。<br>外側(−sin) × 内側(3) = −3sin3x。<br>符号の−を忘れない",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525005324
+      ]
+    },
+    {
+      "noteId": 1783525007388,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((e^{2x})' = {{c1::2e^{2x} }}\\)（合成関数の微分）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分例：(e^(2x))' = 2e^(2x)。<br>eˣ の微分は eˣ 自身 × 内側2。<br>指数関数の連鎖律の典型",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525007388
+      ]
+    },
+    {
+      "noteId": 1783525009491,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\ln 2x)' = {{c1::\\frac{1}{x} }}\\)（x&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分例：(ln2x)' = 1/x。<br>ln(2x) の内側は2x だが、ln2x = ln2 + lnx なので 1/x。<br>条件：x &gt; 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791470011,
+      "cards": [
+        1783525009491
+      ]
+    },
+    {
+      "noteId": 1783525011565,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\sin^2 x)' = {{c1::\\sin 2x }}\\)（合成関数の微分。2sin xcos x でも可）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分例：(sin²x)' = sin2x。<br>2sinx cosx と等しい（倍角公式）。<br>外側2×sin、内側cos を掛ける",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525011565
+      ]
+    },
+    {
+      "noteId": 1783525013654,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\tan^2 x)' = {{c1::\\frac{2\\tan x}{\\cos^2 x} }}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(tan²x)' = 2tanx/cos²x。<br>tan²x を (tanx)² とみなし合成関数＋(tanx)'。<br>または sec²x × 2tanx",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525013654
+      ]
+    },
+    {
+      "noteId": 1783525015736,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((x\\sin x)' = {{c1::\\sin x + x\\cos x }}\\)（積の微分）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "積の微分：(x sinx)' = sinx + x cosx。<br>(u·v)' = u'v + uv' で u=x, v=sinx。<br>「前の微分×後＋前×後の微分」",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525015736
+      ]
+    },
+    {
+      "noteId": 1783525017803,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((x^2 e^x)' = {{c1::e^x(x^2 + 2x) }}\\)（積の微分）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "積の微分：(x²eˣ)' = eˣ(x² + 2x)。<br>u=x², v=eˣ として計算・整理。<br>因数分解すると eˣ(x²+2x) の形",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525017803
+      ]
+    },
+    {
+      "noteId": 1783525019883,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\sin x \\cos x)' = {{c1::\\cos 2x }}\\)（積の微分。cos^2 x - sin^2 x でも可）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "積の微分：(sinx cosx)' = cos2x。<br>直接計算すると cos²x − sin²x も同じ。<br>倍角公式でまとめられる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525019883
+      ]
+    },
+    {
+      "noteId": 1783525021978,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\left(\\frac{1}{x}\\right)' = {{c1::-\\frac{1}{x^2} }}\\)（x ≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(1/x)' = −1/x²。<br>x⁻¹ の微分。べき乗の公式 n=−1 の場合。<br>条件：x ≠ 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525021978
+      ]
+    },
+    {
+      "noteId": 1783525024052,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((x^n)' = {{c1::nx^{n-1} }}\\)（n は定数、x>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(xⁿ)' = nxⁿ⁻¹。<br>べき乗の最も基本的な公式。<br>条件：n は定数、実用では x > 0 が安全",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525024052
+      ]
+    },
+    {
+      "noteId": 1783525026139,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\sin^3 x)' = {{c1::3\\sin^2 x \\cos x }}\\)（合成関数の微分）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分：(sin³x)' = 3sin²x cosx。<br>(sinx)³ の外側3×(sinx)²、内側cosx。<br>高次の三角関数でよく使う",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525026139
+      ]
+    },
+    {
+      "noteId": 1783525028212,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "極限"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\lim_{x \\to \\infty}\\left(1 + \\frac{1}{x}\\right)^x = {{c1::e }}\\)（自然対数の底）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "重要極限：lim(1 + 1/x)ˣ = e（x→∞）。<br>自然対数の底 e ≈ 2.718… の定義。<br>複利計算などにも現れる",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525028212
+      ]
+    },
+    {
+      "noteId": 1783525030310,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "導関数の定義：\\(f'(x) = \\lim_{h \\to 0} \\frac{{{c1::f(x+h) - f(x)}}}{h}\\)",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "導関数の定義：f'(x) = lim[h→0] (f(x+h)−f(x))/h。<br>「変化の割合」の極限が接線の傾き。<br>すべての微分の理論的な出発点",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525030310
+      ]
+    },
+    {
+      "noteId": 1783525032387,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\cos^2 x)' = {{c1::-\\sin 2x }}\\)（合成関数の微分。-2cos xsin x でも可）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分：(cos²x)' = −sin2x。<br>−2cosx sinx と等しい（倍角公式）。<br>(sinx²)' と混同しないよう注意",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525032387
+      ]
+    },
+    {
+      "noteId": 1783525034474,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((e^{kx})' = {{c1::ke^{kx} }}\\)（k は定数）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "合成関数の微分：(e^(kx))' = k e^(kx)。<br>e^(kx) の内側 kx の微分 k が前に出る。<br>k は定数（例：k=3 なら 3e^(3x)）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525034474
+      ]
+    },
+    {
+      "noteId": 1783525036566,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "極限"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\(\\lim_{x \\to 0} \\frac{\\sin(ax)}{bx} = {{c1::\\frac{a}{b} }}\\)（a,, b は定数、b ≠ 0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "極限：lim(x→0) sin(ax)/(bx) = a/b。<br>sinx/x = 1 を sin(ax)/(ax) に適用した形。<br>条件：a, b は定数、b ≠ 0",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525036566
+      ]
+    },
+    {
+      "noteId": 1783525038624,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\sqrt{x})' = {{c1::\\frac{1}{2\\sqrt{x}} }}\\)（x>0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(√x)' = 1/(2√x)。<br>x^(1/2) のべき乗公式より (1/2)x^(−1/2)。<br>条件：x > 0（√xの定義域）",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791162266,
+      "cards": [
+        1783525038624
+      ]
+    },
+    {
+      "noteId": 1783525040702,
+      "profile": "Game",
+      "tags": [
+        "anki-mydeck-make",
+        "math",
+        "基礎解析",
+        "微分"
+      ],
+      "fields": {
+        "Text": {
+          "value": "\\((\\log_{10} x)' = {{c1::\\frac{1}{x \\ln 10} }}\\)（x&gt;0）",
+          "order": 0
+        },
+        "Back Extra": {
+          "value": "微分：(log₁₀x)' = 1/(x ln10)。<br>一般の logₐx に a=10 を代入。<br>常用対数の微分は ln10 が分母に付く",
+          "order": 1
+        },
+        "語源・接辞": {
+          "value": "",
+          "order": 2
+        }
+      },
+      "modelName": "Cloze",
+      "mod": 1791470013,
+      "cards": [
+        1783525040702
+      ]
+    }
+  ]
+}
