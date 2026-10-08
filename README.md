@@ -11,12 +11,14 @@ Anki 向け学習デッキを CSV 生成し、[AnkiConnect](https://foosoft.net/
 | Git学習 | 50 | Basic + ミニマル画像 | `git_deck.csv` |
 | 高校数学・基礎解析 | 100 | Cloze + MathJax + 解説 | `math_deck.csv` |
 | Emacsキー操作 | 106 | Basic | `emacs_deck.csv` |
-| 02メタ認知アップ | 48 | Cloze | `metacog_deck.csv` |
+| 02メタ認知アップ | 30 | Basic | `metacog_deck.csv` |
 | 03 python競技プログラム | 48 | Cloze | `python_comp_deck.csv` |
 | TOEIC英単語・意味 | 1062 | Basic | `toeic_deck_meaning.csv` |
 | TOEIC英単語・文脈 | 1043 | Cloze | `toeic_deck_cloze.csv` |
 
 TOEIC の約100ノートには、採点対象ではないフィールド「語源・接辞」を足してある。選び方と検証は `data/issue7/`。空のノートでは表示されない。
+
+旧 Cloze 版を入れている場合は、Anki 側で 02メタ認知アップ の既存カードを手動で削除してから `--metacog-only` で入れ直す。このスクリプトは既存カードを自動削除しない。
 
 ## 必要環境
 
