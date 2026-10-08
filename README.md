@@ -67,6 +67,8 @@ python import_to_anki.py --preflight --metacog-only
 python import_to_anki.py --preflight --python-comp-only
 
 # 数学デッキの Text / 解説を CSV から同期
+# 注意: Anki 上で問題文を手で直している場合、CSV の内容で上書きされる。
+# 解説の更新には update_math_back_extra.py を使う。
 python import_to_anki.py --fix-mathjax
 ```
 
@@ -79,6 +81,8 @@ my-anki-deck-make/
 ├── toeic_deck_meaning.csv / toeic_deck_cloze.csv
 ├── generate_*.py          # 各デッキ CSV 生成
 ├── math_explanations.py   # 数学デッキ解説（Back Extra）
+├── export_math_from_anki.py    # 数学デッキの現在値を読み取る
+├── update_math_back_extra.py   # Back Extra だけを更新（既定は dry-run）
 ├── import_to_anki.py      # AnkiConnect インポート
 ├── assets/images/git-deck/  # Git デッキ用画像（50枚）
 ├── plan.md                # 仕様・設計ドキュメント
