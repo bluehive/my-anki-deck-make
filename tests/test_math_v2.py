@@ -2,6 +2,7 @@
 """back_extra_v2.csv が export と整合し、追記ルールを守っているか確認する。"""
 
 import csv
+import re
 import sys
 from pathlib import Path
 
@@ -10,6 +11,8 @@ EXPORT = ROOT / "data/math_v2/anki_export.csv"
 UPDATE = ROOT / "data/math_v2/back_extra_v2.csv"
 MIN_LEN = 150
 MAX_LEN = 450
+# 追記（【なぜ成り立つ？】以降）の \\( \\) の外に残ってはいけない TeX。
+BARE_TEX = re.compile(r"\^|_{|\\frac|\\sqrt|\\log|\\pi|\\theta")
 
 
 def load(path):
@@ -40,6 +43,15 @@ def main():
             errors.append(f"{index}: \\( が {left}、\\) が {right}")
         if not (MIN_LEN <= len(extra) <= MAX_LEN):
             length_out.append((index, new["noteId"], len(extra)))
+        marker = "【なぜ成り立つ？】"
+        addition_at = extra.find(marker)
+        if addition_at < 0:
+            errors.append(f"{index}: 追記の見出しがありません")
+            continue
+        addition = extra[addition_at:]
+        outside = re.sub(r"\\\(.*?\\\)", "", addition, flags=re.DOTALL)
+        if BARE_TEX.search(outside):
+            errors.append(f"{index}: 追記の \\(...\\) の外に TeX 記法が残っています")
 
     print(f"notes: {len(update_rows)}")
     print(f"noteId match: {not any('noteId' in item for item in errors)}")
