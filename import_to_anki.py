@@ -7,6 +7,7 @@ AnkiConnect経由で Git / 数学 / Emacs / TOEIC / メタ認知 / Python競技 
 - git_deck.csv          → Basic ノート（Front + Back + 画像）
 - math_deck.csv         → Cloze ノート（Text + MathJax + Back Extra）
 - emacs_deck.csv        → Basic ノート（Front + Back + カテゴリタグ）
+- metacog_deck.csv      → Basic ノート（Front + Back + カテゴリタグ）。--metacog-only のみ
 - toeic_deck_meaning.csv → Basic ノート（英単語+音声 / 和訳+画像+解説）
 - toeic_deck_cloze.csv  → Cloze ノート（例文穴埋め / 単語+和訳+音声+画像）
 - python_comp_deck.csv  → Cloze ノート（Text + トピックタグ）。--python-comp-only のみ
@@ -37,7 +38,7 @@ EMACS_EXPECTED_COUNT = 106
 
 METACOG_DECK_NAME = "02メタ認知アップ"
 METACOG_CSV = "metacog_deck.csv"
-METACOG_EXPECTED_COUNT = 48
+METACOG_EXPECTED_COUNT = 30
 
 PYTHON_COMP_DECK_NAME = "03 python競技プログラム"
 PYTHON_COMP_CSV = "python_comp_deck.csv"
@@ -239,18 +240,18 @@ def add_toeic_cloze_note(text: str, back_extra: str, word: str = "") -> bool:
     return invoke("addNote", {"note": note}) is not None
 
 
-def add_metacog_note(text: str, tag: str = "") -> bool:
-    """メタ認知 Cloze カードを追加。再実行は重複追加になる。"""
+def add_metacog_note(front: str, back: str, category: str = "") -> bool:
+    """メタ認知 Basic カードを追加。再実行は重複追加になる。"""
     tags = ["metacog", PROJECT_TAG]
-    if tag:
-        tags.append(tag)
+    if category:
+        tags.append(category)
 
     note = {
         "deckName": METACOG_DECK_NAME,
-        "modelName": "Cloze",
+        "modelName": "Basic",
         "fields": {
-            "Text": text,
-            "Back Extra": "",
+            "Front": front,
+            "Back": back,
         },
         "tags": tags,
     }
@@ -380,7 +381,7 @@ def import_metacog_deck() -> tuple[int, int]:
         print(f"エラー: {METACOG_CSV} が見つかりません")
         return 0, 0
 
-    if not ensure_model_exists("Cloze"):
+    if not ensure_model_exists("Basic"):
         return 0, 0
 
     ensure_deck_exists(METACOG_DECK_NAME)
@@ -396,11 +397,12 @@ def import_metacog_deck() -> tuple[int, int]:
     success = 0
 
     for i, row in enumerate(rows, 1):
-        text = row["Text"]
-        tag = row.get("Tag", "").strip()
-        preview = text[:40]
+        front = row["表面"]
+        back = row["裏面"]
+        category = row.get("カテゴリ", "").strip()
+        preview = front[:40]
         print(f"\n[{i}/{total}] {preview}...")
-        if add_metacog_note(text, tag):
+        if add_metacog_note(front, back, category):
             success += 1
             print("  ✓ カード追加成功")
         else:
@@ -887,11 +889,30 @@ def preflight_check(
                 f"  ✗ 件数不一致（期待: {METACOG_EXPECTED_COUNT}, 実際: {len(metacog_rows)}）"
             )
             ok = False
-        elif len(metacog_rows) > 50:
-            print(f"  ✗ 新規上限50を超えています: {len(metacog_rows)}")
+        else:
+            print(f"  ✓ 件数: {METACOG_EXPECTED_COUNT}問")
+        missing_fields = [
+            r
+            for r in metacog_rows
+            if not r.get("表面", "").strip()
+            or not r.get("裏面", "").strip()
+            or not r.get("カテゴリ", "").strip()
+        ]
+        cloze_rows = [
+            r
+            for r in metacog_rows
+            if "{{c" in r.get("表面", "") or "{{c" in r.get("裏面", "")
+        ]
+        if missing_fields:
+            print(f"  ✗ 表面/裏面/カテゴリの空欄: {len(missing_fields)} 件")
             ok = False
         else:
-            print(f"  ✓ 件数: {METACOG_EXPECTED_COUNT}問（上限50以内）")
+            print("  ✓ 表面/裏面/カテゴリ: 全カードOK")
+        if cloze_rows:
+            print(f"  ✗ Cloze記法が残っている: {len(cloze_rows)} 件")
+            ok = False
+        else:
+            print("  ✓ Basic（Cloze記法なし）: 全カードOK")
 
     if check_python_comp and os.path.exists(PYTHON_COMP_CSV):
         with open(PYTHON_COMP_CSV, "r", encoding="utf-8") as f:
