@@ -18,6 +18,28 @@ Anki 向け学習デッキを CSV 生成し、[AnkiConnect](https://foosoft.net/
 
 TOEIC の約100ノートには、採点対象ではないフィールド「語源・接辞」を足してある。選び方と検証は `data/issue7/`。空のノートでは表示されない。
 
+語源・接辞 v2 は、その表示を裏面だけにし、次の100枚と既存の省略修正を用意する。スクリプトの既定は dry-run で、Anki へは書かない。承認後に人が `--apply` を付ける。
+
+```bash
+# 読み取り。両デッキのノートと Basic/Cloze のテンプレートを控える
+mise exec -- uv run --python 3.12 python scripts/toefl_etym_v2.py backup
+
+# 既存100件を除き、lapses 降順・同数は最近の失敗が新しい順で次の100件
+mise exec -- uv run --python 3.12 python scripts/toefl_etym_v2.py select
+
+# テンプレート差分だけ出す。Front から語源を外し、Back の解答の後に1回置く
+mise exec -- uv run --python 3.12 python scripts/toefl_etym_v2.py templates
+
+# 新規・修正・変更なしの件数と差分だけ出す
+mise exec -- uv run --python 3.12 python scripts/toefl_etym_v2.py fields
+
+# 承認後。テンプレートを裏面だけにし、語源・接辞フィールドだけを書く
+mise exec -- uv run --python 3.12 python scripts/toefl_etym_v2.py templates --apply
+mise exec -- uv run --python 3.12 python scripts/toefl_etym_v2.py fields --apply
+```
+
+選び方と dry-run の記録は `data/toefl_etym_v2/`。
+
 旧 Cloze 版を入れている場合は、Anki 側で 02メタ認知アップ の既存カードを手動で削除してから `--metacog-only` で入れ直す。このスクリプトは既存カードを自動削除しない。
 
 ## 必要環境
