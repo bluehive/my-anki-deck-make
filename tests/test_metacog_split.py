@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """メタ認知デッキの分割（Issue #14）を、AnkiConnect なしで確認する。"""
 
+from __future__ import annotations
+
 import csv
 import importlib.util
 import json
@@ -122,12 +124,22 @@ def test_mapping_star_is_first_and_counts_add_eight():
 
 
 class FakeAnki:
-    """findNotes / notesInfo だけを返し、書き込み系は記録する。"""
+    """findNotes / notesInfo だけを返し、書き込み系は記録する。
 
-    def __init__(self, notes: dict[int, str]):
-        self.notes = dict(notes)
-        self.next_id = max(notes, default=1000) + 1
+    notes の値は表面の文字列か、{"front", "back"} のどちらか。
+    裏面を渡さない既存テストでは Back を返さず、再書き込み判定を従来どおりにする。
+    """
+
+    def __init__(self, notes: dict[int, str | dict]):
+        self.notes = {note_id: self._entry(value) for note_id, value in notes.items()}
+        self.next_id = max(self.notes, default=1000) + 1
         self.calls = []
+
+    @staticmethod
+    def _entry(value):
+        if isinstance(value, dict):
+            return {"front": value["front"], "back": value.get("back")}
+        return {"front": value, "back": None}
 
     def __call__(self, action, params=None):
         self.calls.append(action)
@@ -137,21 +149,34 @@ class FakeAnki:
             front = query.split('"Front:', 1)[1]
             if front.endswith('"'):
                 front = front[:-1]
-            return [note_id for note_id, text in self.notes.items() if text == front]
-        if action == "notesInfo":
             return [
-                {"noteId": note_id, "fields": {"Front": {"value": self.notes[note_id]}}}
-                for note_id in params["notes"]
-                if note_id in self.notes
+                note_id
+                for note_id, entry in self.notes.items()
+                if entry["front"] == front
             ]
+        if action == "notesInfo":
+            infos = []
+            for note_id in params["notes"]:
+                entry = self.notes.get(note_id)
+                if entry is None:
+                    continue
+                fields = {"Front": {"value": entry["front"]}}
+                if entry["back"] is not None:
+                    fields["Back"] = {"value": entry["back"]}
+                infos.append({"noteId": note_id, "fields": fields})
+            return infos
         if action == "updateNoteFields":
             note = params["note"]
-            self.notes[note["id"]] = note["fields"]["Front"]
+            entry = self.notes.setdefault(note["id"], {"front": "", "back": None})
+            entry["front"] = note["fields"]["Front"]
+            if "Back" in note["fields"]:
+                entry["back"] = note["fields"]["Back"]
             return None
         if action == "addNote":
             note_id = self.next_id
             self.next_id += 1
-            self.notes[note_id] = params["note"]["fields"]["Front"]
+            fields = params["note"]["fields"]
+            self.notes[note_id] = {"front": fields["Front"], "back": fields.get("Back")}
             return note_id
         if action == "deleteNotes":
             return None
@@ -190,7 +215,7 @@ def test_apply_updates_five_and_adds_eight():
     assert written.count("addNote") == 8
     assert written.count("deleteNotes") == 0
     for item in plan["updates"]:
-        assert fake.notes[item["note_id"]] == item["new_front"]
+        assert fake.notes[item["note_id"]]["front"] == item["new_front"]
 
 
 def test_apply_is_idempotent_when_already_migrated():
@@ -253,3 +278,43 @@ def test_cli_dry_run_default_does_not_apply(monkeypatch, capsys):
 def test_add_note_tags_match_existing_importer():
     tags = migrate.note_tags("毎日の実践")
     assert tags == ["metacog", importer.PROJECT_TAG, "毎日の実践"]
+
+
+def partial_migrated_notes():
+    """★は更新済み。追加カードは各分割の先頭1枚だけ残し、残りは未追加にする。"""
+    notes = {}
+    note_id = 300
+    for split in mapping()["splits"]:
+        star = split["cards"][0]
+        notes[note_id] = {"front": star["front"], "back": star["back"]}
+        note_id += 1
+        first_extra = split["cards"][1]
+        notes[note_id] = {"front": first_extra["front"], "back": first_extra["back"]}
+        note_id += 1
+    return notes
+
+
+def test_resume_after_partial_add_adds_only_the_rest():
+    fake = FakeAnki(partial_migrated_notes())
+    plan = migrate.plan_migration(mapping(), invoke_fn=fake)
+    assert plan["updates"] == []
+    assert len(plan["adds"]) == 3
+    assert {item["id"] for item in plan["adds"]} == {"1", "3"}
+    result = migrate.apply_plan(plan, invoke_fn=fake)
+    assert result == {"updated": 0, "added": 3, "deleted": 0}
+    assert "updateNoteFields" not in fake.calls
+    assert "deleteNotes" not in fake.calls
+
+
+def test_second_run_after_resume_writes_nothing():
+    fake = FakeAnki(partial_migrated_notes())
+    first = migrate.plan_migration(mapping(), invoke_fn=fake)
+    migrate.apply_plan(first, invoke_fn=fake)
+    before = list(fake.calls)
+    second = migrate.plan_migration(mapping(), invoke_fn=fake)
+    result = migrate.apply_plan(second, invoke_fn=fake)
+    assert second["updates"] == []
+    assert second["adds"] == []
+    assert result == {"updated": 0, "added": 0, "deleted": 0}
+    written = [action for action in fake.calls[len(before) :] if action in migrate.WRITE_ACTIONS]
+    assert written == []
