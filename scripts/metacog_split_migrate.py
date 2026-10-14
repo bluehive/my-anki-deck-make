@@ -4,6 +4,8 @@
 既定は dry-run。--apply を付けたときだけ AnkiConnect に書き込む。
 先頭カード（★）は noteId を指定して updateNoteFields する。
 残りは addNote。表面が既にあれば追加しない。deleteNotes は使わない。
+★の更新だけ済んで追加が途中で止まった場合は、再実行で残りだけ追加する。
+表面を維持した★は、裏面が既に新しければ書き換えない。
 """
 
 from __future__ import annotations
@@ -74,6 +76,16 @@ def front_of(note: dict) -> str:
     return str(front)
 
 
+def back_of(note: dict) -> str:
+    fields = note.get("fields") or {}
+    back = fields.get("Back") or {}
+    if isinstance(back, dict):
+        return back.get("value") or ""
+    if back is None:
+        return ""
+    return str(back)
+
+
 def _ok_value(result):
     """InvokeResult でも、テスト用の素の戻り値でも読めるようにする。"""
     if isinstance(result, InvokeResult):
@@ -83,8 +95,8 @@ def _ok_value(result):
     return result
 
 
-def find_note_ids_by_front(deck: str, front: str, invoke_fn=invoke) -> list[int] | None:
-    """デッキ内で表面が完全一致する noteId を返す。接続失敗は None。"""
+def find_notes_by_front(deck: str, front: str, invoke_fn=invoke) -> list[dict] | None:
+    """デッキ内で表面が完全一致するノートを返す。接続失敗は None。"""
     query = f'deck:"{deck}" "Front:{front}"'
     found = _ok_value(invoke_fn("findNotes", {"query": query}))
     if found is None:
@@ -94,8 +106,19 @@ def find_note_ids_by_front(deck: str, front: str, invoke_fn=invoke) -> list[int]
     infos = _ok_value(invoke_fn("notesInfo", {"notes": found}))
     if infos is None:
         return None
-    matched = [note["noteId"] for note in infos if front_of(note) == front]
+    matched = []
+    for note in infos:
+        if front_of(note) == front:
+            matched.append({"noteId": note["noteId"], "back": back_of(note)})
     return matched
+
+
+def find_note_ids_by_front(deck: str, front: str, invoke_fn=invoke) -> list[int] | None:
+    """デッキ内で表面が完全一致する noteId を返す。接続失敗は None。"""
+    notes = find_notes_by_front(deck, front, invoke_fn)
+    if notes is None:
+        return None
+    return [note["noteId"] for note in notes]
 
 
 def plan_migration(mapping: dict, invoke_fn=invoke) -> dict:
@@ -105,76 +128,101 @@ def plan_migration(mapping: dict, invoke_fn=invoke) -> dict:
     adds = []
     skips = []
 
-    for split in mapping["splits"]:
-        old_front = split["old_front"]
-        cards = split["cards"]
-        star = cards[0]
-        extras = cards[1:]
-        note_ids = find_note_ids_by_front(deck, old_front, invoke_fn)
-        if note_ids is None:
-            skips.append(
-                {
-                    "id": split["id"],
-                    "old_front": old_front,
-                    "reason": "AnkiConnect への問い合わせに失敗した",
-                }
-            )
-            continue
-        if len(note_ids) != 1:
-            reason = "0件" if len(note_ids) == 0 else f"{len(note_ids)}件"
-            skips.append(
-                {
-                    "id": split["id"],
-                    "old_front": old_front,
-                    "reason": f"元の表面に完全一致するノートが{reason}（ちょうど1件ではないので書き込まない）",
-                    "count": len(note_ids),
-                }
-            )
-            continue
+    def skip(split_id: str, old_front: str, reason: str, **extra) -> None:
+        item = {"id": split_id, "old_front": old_front, "reason": reason}
+        item.update(extra)
+        skips.append(item)
 
-        note_id = note_ids[0]
-        updates.append(
-            {
-                "id": split["id"],
-                "note_id": note_id,
-                "old_front": old_front,
-                "old_back": split.get("old_back", ""),
-                "new_front": star["front"],
-                "new_back": star["back"],
-                "category": star["category"],
-            }
-        )
+    def queue_extras(split_id: str, old_front: str, extras: list[dict]) -> None:
         for card in extras:
-            existing = find_note_ids_by_front(deck, card["front"], invoke_fn)
+            existing = find_notes_by_front(deck, card["front"], invoke_fn)
             if existing is None:
-                skips.append(
-                    {
-                        "id": split["id"],
-                        "old_front": old_front,
-                        "front": card["front"],
-                        "reason": "追加候補の照合に失敗した",
-                    }
-                )
+                skip(split_id, old_front, "追加候補の照合に失敗した", front=card["front"])
                 continue
             if existing:
-                skips.append(
-                    {
-                        "id": split["id"],
-                        "old_front": old_front,
-                        "front": card["front"],
-                        "reason": "表面が既にデッキ内にあるので追加しない",
-                        "count": len(existing),
-                    }
+                skip(
+                    split_id,
+                    old_front,
+                    "表面が既にデッキ内にあるので追加しない",
+                    front=card["front"],
+                    count=len(existing),
                 )
                 continue
             adds.append(
                 {
-                    "id": split["id"],
+                    "id": split_id,
                     "front": card["front"],
                     "back": card["back"],
                     "category": card["category"],
                 }
             )
+
+    for split in mapping["splits"]:
+        old_front = split["old_front"]
+        cards = split["cards"]
+        star = cards[0]
+        extras = cards[1:]
+        old_notes = find_notes_by_front(deck, old_front, invoke_fn)
+        if old_notes is None:
+            skip(split["id"], old_front, "AnkiConnect への問い合わせに失敗した")
+            continue
+        if len(old_notes) > 1:
+            skip(
+                split["id"],
+                old_front,
+                f"元の表面に完全一致するノートが{len(old_notes)}件（ちょうど1件ではないので書き込まない）",
+                count=len(old_notes),
+            )
+            continue
+        if len(old_notes) == 0:
+            # 表面を維持する★は、元の表面を探した時点で★も0件と分かる。
+            if star["front"] == old_front:
+                skip(
+                    split["id"],
+                    old_front,
+                    "元の表面も★の表面も0件（ちょうど1件ではないので書き込まない）",
+                    count=0,
+                )
+                continue
+            star_notes = find_notes_by_front(deck, star["front"], invoke_fn)
+            if star_notes is None:
+                skip(split["id"], old_front, "AnkiConnect への問い合わせに失敗した")
+                continue
+            if len(star_notes) == 0:
+                skip(
+                    split["id"],
+                    old_front,
+                    "元の表面も★の表面も0件（ちょうど1件ではないので書き込まない）",
+                    count=0,
+                )
+                continue
+            if len(star_notes) != 1:
+                skip(
+                    split["id"],
+                    old_front,
+                    f"★の表面に完全一致するノートが{len(star_notes)}件（1件ではないので書き込まない）",
+                    front=star["front"],
+                    count=len(star_notes),
+                )
+                continue
+            queue_extras(split["id"], old_front, extras)
+            continue
+
+        note = old_notes[0]
+        already_rewritten = star["front"] == old_front and note["back"] == star["back"]
+        if not already_rewritten:
+            updates.append(
+                {
+                    "id": split["id"],
+                    "note_id": note["noteId"],
+                    "old_front": old_front,
+                    "old_back": split.get("old_back", ""),
+                    "new_front": star["front"],
+                    "new_back": star["back"],
+                    "category": star["category"],
+                }
+            )
+        queue_extras(split["id"], old_front, extras)
 
     return {"deck": deck, "updates": updates, "adds": adds, "skips": skips}
 
