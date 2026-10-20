@@ -40,6 +40,7 @@ EXPECTED_CATEGORIES = {
     "自分への質問": 3,
     "説明して覚える": 4,
     "毎日の実践": 9,
+    "学ぶ順番": 9,
 }
 
 
@@ -66,7 +67,7 @@ def mapping():
 
 def test_csv_shape_and_uniqueness():
     rows = read_csv_rows()
-    assert len(rows) == 38
+    assert len(rows) == 47
     assert list(rows[0].keys()) == ["表面", "裏面", "カテゴリ"]
     fronts = [row["表面"] for row in rows]
     assert len(fronts) == len(set(fronts))
@@ -98,8 +99,8 @@ def test_old_fronts_gone_and_chunks_kept():
 
 
 def test_generator_matches_csv_and_counts():
-    assert gen.EXPECTED_TOTAL == 38
-    assert importer.METACOG_EXPECTED_COUNT == 38
+    assert gen.EXPECTED_TOTAL == 47
+    assert importer.METACOG_EXPECTED_COUNT == 47
     assert importer.METACOG_EXPECTED_COUNT == gen.EXPECTED_TOTAL
     rows = read_csv_rows()
     generated = [
